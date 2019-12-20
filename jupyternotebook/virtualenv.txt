@@ -1,0 +1,20 @@
+Create a virtual environment
+===========================================================
+Note: I like to use a . in front of my virtual environments
+so the folder is hidden.
+
+>>>virtualenv .venv
+
+Get inside the environment
+>>>.venv/scripts/activate
+You can verify quickly you are in the environment by running which python which will return the path of the python executable in the environment if all went well
+which python
+>>> xxxxx/.venv/bin/python
+
+Install a Jupyter kernel
+============================================================
+This will install a kernel inside the environment, to use to run in the Jupyter notebook there:
+>>>ipython kernel install --user --name=.venv
+
+Run Jupyter, and select the .venv kernel to run the notebook
+>>>jupyter notebook
