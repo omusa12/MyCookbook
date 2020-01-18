@@ -1,0 +1,30 @@
+publisher subscriber architecture
+
+5 parts:
+1-publisher creates and sends messages to topic
+2-Topic are named channels to which messages are sent:
+    recieves messages from publisher and store in percentant storage
+3-Message is acombination of data and attributes
+4-subscriber consumer of a topic to recieve messages
+5-subscription is a named resource which represents the stream of messages
+
+Pub/sub architecture advantages:
+-ensures at least once delivery
+-ensures exactly one processing
+-less point of failures
+-easily scalable
+
+Google cloud pubSub advantages and features
+- has the ability to injest millions of streaming events per second
+-HIPAA-compliant service, offering access controls and end to end encription
+-Open APIs and client libraries in multiple languages support cross-cloud
+and hybrid deployments
+
+Windowing
+-can not process stream data without Windowing
+-windowing mechanism to split streams is left to the user to define whether time
+quanitity etc
+-occurs on as need bases (need it for groupby won't need it in filtering action)
+-can be used in batch data not needed
+-error will be genrated if you don't define windowing when u need it
+
