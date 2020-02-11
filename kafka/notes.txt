@@ -1,0 +1,49 @@
+Topics, partitions and offsets
+====================================
+-Topic is a particular stream of data
+    -similar to a table in a database
+    -as many topics as we want
+    - a topic is identified by it's name
+-Topics are split into partitions
+    -topics are split in partitions
+    -partition 0, partition 1, partition 2
+    -each message within a partition gets an incremental is, called offset
+-offsets only have a meaning for a specific partition
+    -eg offset 3 in partion 0 not same data as offset 3 in partion 1
+-Order is guatranteed only within a partion
+-data(offsets) are kept for one week
+-data written to partition is immutable
+-data is assigned randomly to a partition unless a key is provided
+
+Brokers
+===================================
+-a kafka cluster is composed of multiple brokers(servers)
+-eaach broker is identified by an id(number)
+-each broker contains certain topic partitions
+-A good number is typically 3 brokers
+
+Replication factor
+===================================
+-replication if a machine goes down we still work
+-topics should have a replication factor of > 1 (3 gold standard)
+-if a broker is down another 1 can serve the data
+**At any one time only one broker can be a leader for a given partition
+**Only the leader can recieve and serve data for a partition
+-other brokers will synchronize the data
+-each partition has one leader and multiple ISR (in-sync replica)
+
+Producers
+==================================
+-producers write data to topics(made of partitions)
+-producers automatically know to which broker and partition to write to
+-incase of broker failures, producers will automatically recover
+-3 send modes (acks=0,1,2) acks=0 possible data loss, acks=2 no data loss
+
+Consumers
+=================================
+-read data from topic automatically and know how to recover
+-Data is read within each partition in Order
+-consumers can read from multiple partitions (no guatrantee for order accross partitions)
+-consumers read data in comsumer groups
+-eaach comsumer within a group reads from excludive list
+**if you want to have a high number of consumers we need to have a high number of partitions
