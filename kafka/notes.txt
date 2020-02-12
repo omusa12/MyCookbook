@@ -47,3 +47,46 @@ Consumers
 -consumers read data in comsumer groups
 -eaach comsumer within a group reads from excludive list
 **if you want to have a high number of consumers we need to have a high number of partitions
+
+Consumer offsets
+=================================
+-kafka stores the offsets at which group has been reading
+-the offsets commiited in live kafka topic named __consumer_offsets
+-when a consumer in a group has processed data resived from kafka, it should be commiting offsets
+-if a consumer dies it will be able to start where it left off
+
+Delivery Semantics
+==================================
+-consumers choose when to commit offsets
+-3 delivery Semantics
+    1. At most once 
+        -offsets are commited as soon as the message recieved
+        -if processing goes wrong the message will be lost
+    2. At least once
+        - can dublicate messages
+    3. Exactly once
+        -can be achieved for kafka=>kafka workflows using kafka stream api
+        -for kafka=>external use idempotent consumer
+
+Kafka Broker Discovery
+==================================
+-every kafka broker is called a "bootstrap server"
+-you only need to connect to one broker you are connected to entire cluster
+-each broker know all brokers, topics and partitions
+
+Zookeeper
+==================================
+-manages brokers(keeps a list of them)
+-helps in performing leader election for partitions
+-sends notification to kafka cluster in case of changes(new topic, broker dies, etc)
+-kafka cant work without Zookeeper
+-operates with odd number of servers
+-has a leader(handles writes) the rest of the servers are followers(handle reads)
+-does not store consumer offsets
+
+Kafka Guarantees
+==================================
+-Message are appended to a topic-partition in the order they are sent
+-consumers read messages in the order stored in a topic-partition
+-with a relication factor of N, producers and consumers can tolerate up to N-1 brokers being down
+-as long as the number of partitons remains contant for a topic the same key will always go to the same partition
