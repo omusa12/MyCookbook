@@ -1,0 +1,11 @@
+nodetool status
+
+systemctl restart cassandra
+
+sudo systemctl start cassandra
+
+sudo systemctl stop cassandra
+
+----------------------------------------
+use keyspace
+-use name-keyspace

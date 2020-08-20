@@ -1,0 +1,30 @@
+// in J we can put anything that is an int or can be converted 
+//to an int implicitly (int, short,byte,char, string(java 7 or higher))
+
+public class Switch {
+	public static void main(String[] args) {
+		int j = 3;
+		String str = null;
+		
+		// the j in the parenthesis we are not evaluating 
+		//we are only checking. WE are running tests
+		// case 1 if J is 1 run str = "one"
+		switch(j) {
+		case 1:
+			str = "one";
+			break;
+		case 2:
+			str = "two";
+			break;
+		case 3:
+			str = "three";
+			break;
+		case 4:
+			str = "four";
+			break;
+		default:
+			str = "unknown";
+		}
+		System.out.println(str);
+	}
+}

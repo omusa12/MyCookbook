@@ -1,0 +1,4 @@
+AWS marketplace store for AIM's from trusted sources
+
+Instance Types
+once selected your AMI you need to select your instance types

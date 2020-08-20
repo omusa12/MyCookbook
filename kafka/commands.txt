@@ -1,0 +1,42 @@
+start Zookeeper
+zookeeper-server-start.sh config/zookeeper.properties
+
+start Kafka 
+kafka-server-start.sh config/server.properties
+
+Kafka Topics CLI
+============================================================================
+-after starting kafka server
+
+kafka-topics: will list available commands
+
+create new topic command example
+kafka-topics --zookeeper 127.0.0.1:2181 --topic name_of_topic --create --partitions 3 --replication-factor 1
+
+list all topics
+kafka-topics --zookeeper 127.0.0.1:2181 --list
+
+information about a topic(description)
+kafka-topics --zookeeper 127.0.0.1:2181 --topic topic_name --describe
+
+delete topic
+kafka-topics --zookeeper 127.0.0.1:2181 --topic topic_name --delete
+
+
+kafka Console Producer
+============================================================================
+all available commands
+kafka-console-producer
+
+create messages in command line
+kafka-console-producer.sh roker-list 127.0.0.1:9092 --topic first_topic
+
+create properties
+kafka-console-producer.sh broker-list 127.0.0.1:9092 --topic first_topic --producer-property acks=all
+
+
+kafka Consule Consumer
+============================================================================
+list all commands
+kafka-console-consumer.sh
+

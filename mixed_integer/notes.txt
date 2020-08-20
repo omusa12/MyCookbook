@@ -1,0 +1,6 @@
+Project Management
+
+refers to a set of t tasks each with two properties.
+a) Duration
+b) a subset of T(possibly empty) of prceeding tasks
+

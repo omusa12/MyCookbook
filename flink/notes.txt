@@ -1,0 +1,6 @@
+start flink
+sudo ./bin/start-cluster.sh
+
+input command specifying two input files
+=========================================
+flink run -c com.github.omusa.JoinExample /home/omer/Hitron/pipeline/flink-rabbit/out/artifacts/flink_rabbit_jar/flink-rabbit.jar --input1 file:///home/omer/Hitron/JOINS/person --input2 file:///home/omer/Hitron/JOINS/location --output file:///home/omer/Hitron/JOINS/innerjoinresult

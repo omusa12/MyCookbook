@@ -1,0 +1,15 @@
+public class CourseExamples {
+	public static void main(String[] args) {
+		boolean inMinneapolis = false;
+		boolean inSaintPaul = false;
+		
+		if(inMinneapolis) {
+			System.out.println("Hello from Mpls!");
+		} else if(inSaintPaul) {
+			System.out.println("Hello from Saint Paul!");
+		} else {
+			System.out.println("Hello from somewhere!");
+		}
+	}
+
+}

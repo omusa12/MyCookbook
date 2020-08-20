@@ -1,0 +1,11 @@
+to set up
+================================
+-AMI
+-instance type
+-security groups
+-storage
+-key pairs
+
+================================
+ec2 is running in a host in a aws location which is running
+inside an aws-availability zone eg us-west-2b
